@@ -9,7 +9,7 @@ class Initial_configuration:
 
 def configuration():
     a = Initial_configuration(size)
-    print(a.array)
+    print(a.array[0][1])
 configuration()
 
 
