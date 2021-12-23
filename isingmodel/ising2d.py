@@ -1,17 +1,17 @@
 import numpy as np
-from math import radians, cos, sin, asin, sqrt
-#array=np.ones((3,3))
-#print(array)
-size=4
-class Initial_configuration:
-    def __init__(self, size):
-        self.array=np.ones((size,size))
-
-def configuration():
-    a = Initial_configuration(size)
-    print(a.array[0][1])
-configuration()
-
+#import random
+from isingmodel import configuration
+from isingmodel import energy
+size = 4
+lattice=np.ones((size,size))
+energy=0.0
+def finding_random_position(lattice):
+    configuration.lattice(lattice)
+    i=np.random.randint(0, size)
+    j=np.random.randint(0, size)
+    lattice[i][j]= lattice[i][j]*-1.0
+finding_random_position(lattice)
+energy.calculation_of_energy(lattice,energy)
 
 
 
