@@ -4,8 +4,9 @@ from isingmodel import configuration
 #from isingmodel import energy
 
 a1=configuration.Configuration2d
-print(a1.finding_randomposition_of_lattice_2d())
 print(a1.calculation_of_energy())
+print(a1.finding_randomposition_of_lattice_2d())
+
 
 
 
