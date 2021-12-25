@@ -3,15 +3,10 @@ from isingmodel.configuration import Configuration2d
 
 
 class EnergyUtility:
-    def calculate_energy(array,ri,rj):
-        sum_pr=0.0
-        for i in range(0, 4):
-            for j in range(0, 4):
-                sum_pr = sum_pr+array[i][j]
+    def find_energy_at_ij(array,i,j):
+        nearest_neigbor_sum = (array[i,(j-1)%4]+array[i,(j+1)%4]+array[(i+1)%4,j]+array[(i+j)%4,j])
+        energy_after = nearest_neigbor_sum*array[i,j]*-1.0
+        energy_before = nearest_neigbor_sum*array[i,j]*1.0
+        return energy_after,energy_before
 
-        array[ri][rj] = array[ri][rj]*-1.0
-        sum_lat=0.0
-        for i in range(0, 4):
-            for j in range(0, 4):
-                sum_lat = sum_lat+array[i][j]
-        return sum_pr,sum_lat
+

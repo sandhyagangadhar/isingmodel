@@ -7,23 +7,23 @@ class Metropolis2d:
     def apply_metropolis():
         conf = Configuration2d()
         print(conf.i,conf.j)
-        print(conf.array)
-        energy_previous,energy_later=EnergyUtility.calculate_energy(conf.array,conf.i,conf.j)
-        print('energy_previous,energy_later',energy_previous,energy_later)
-   #     conf.change_spin_at_random_position()
-    #    energy_later = EnergyUtility.calculate_energy(conf.array,conf.i,conf.j)
-   #     print('energy_later',energy_later)
-        if(energy_later<energy_previous):
+        energy_later,energy_before=EnergyUtility.find_energy_at_ij(conf.array,conf.i,conf.j)
+        print('energy_later,energy_before',energy_later,energy_before)
+        energy_diff = (energy_later)-(energy_before)
+        if(energy_diff>=0):
+            conf.array[conf.i][conf.j] = conf.array[conf.i][conf.j] * -1.0
             print(conf.array)
+    #    elif():
+     #       print(np.random())
         else:
-            conf.array[conf.i][conf.j]=conf.array[conf.i][conf.j]*-1.0
-            print(conf.array)
+            print(np.exp(-energy_diff))
+
+
 
 
 
 a2=Metropolis2d
 a2.apply_metropolis()
-#a2 = configuration.Configuration2d()
 
 
 
