@@ -1,5 +1,5 @@
 from isingmodel.configuration import Configuration2d
-from isingmodel.metropolis import Metropolis2d
+from isingmodel.metropolis2d import Metropolis2d
 from isingmodel.energyutility import EnergyUtility
 
 NO_OF_EQULIBRIUM_STEPS = 10
